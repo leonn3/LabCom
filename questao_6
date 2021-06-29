@@ -1,0 +1,78 @@
+%{
+ =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+|                                                                        |
+| LABORATÓRIO DE COMUNICAÇÕES                                            |
+| ALUNO: Woldson Leonne Pereira Gomes (woldson.gomes@itec.ufpa.br)       |
+| MATRICULA: 202100470032                                                |
+|                                                                        |
+|                             LISTA 1                                    |
+| 6) Considere as sequencias {001210-100},{102010-100} e os sinais       |
+| senoidais y1 e y2 com frequencias 1 kHz e 500 Hz e amplitudes 5V e     |
+| 3,5 V respectivamente. Utilize a funcao subplot para esbocar os 4      |
+| graficos simultaneamente em uma unica tela.                            |
+ =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+%}
+
+clear all; close all; clc;         %limpando a workspace
+
+% Definicao do eixo de tempo(s) para as senoides
+t=(-2/1000:1/(1000*100):2/1000); 
+
+% Defiicao das 4 funcoes solicitadas
+seq_1 = [0 0 1 2 1 0 -1 0 0];
+seq_2 = [1 0 2 0 1 0 -1 0 0];
+y1 = 5*sin(2*pi*1000*t);
+y2 = 3.5*sin(2*pi*500*t);
+
+% Definicao do eixo de amostras[k] para as sequencias
+k=1:1:length(seq_1);             
+
+%% Plot e Subplot (2,2,N)
+figure(1)
+set (gcf, 'units', 'normalized', 'outerposition', [0 0 1 1]); % Maxim. fig.
+
+% Subplot da 1 sequencia
+subplot(2,2,1)
+    stem(k,seq_1,'k-.','LineWidth',2,...
+     'MarkerFaceColor','k',...
+     'MarkerEdgeColor','k');
+    title('Sequencia_{1} = [0 0 1 2 1 0 -1 0 0]');
+    xlabel('[n]');
+    ylabel('Y_{1}[n]');
+    axis([0 length(seq_1)+1 min(seq_1)-1 max(seq_1)+1])
+    grid minor
+    for i=1:length(seq_1),
+        text(i+0.2,seq_1(i),num2str(seq_1(i)))
+    end
+    
+% Subplot da 2 sequencia
+subplot(2,2,2)
+    stem(k,seq_2,'k-.','LineWidth',2,...
+     'MarkerFaceColor','k',...
+     'MarkerEdgeColor','k');
+    title('Sequencia_{2} = [1 0 2 0 1 0 -1 0 0]');
+    xlabel('[n]');
+    ylabel('Y_{2}[n]');
+    axis([0 length(seq_2)+1 min(seq_2)-1 max(seq_2)+1])
+    grid minor
+    for i=1:length(seq_2),
+        text(i+0.2,seq_2(i),num2str(seq_2(i)))
+    end
+
+% Subplot da 1 senoide - y1(t)
+subplot(2,2,3)
+    plot(t,y1,'k','LineWidth',2);
+    title('y_{1}(t)');
+    xlabel('Tempo (s)');
+    ylabel('Amplitude (V)');
+    grid minor 
+
+% Subplot da 2 senoide - y2(t)
+subplot(2,2,4)
+    plot(t,y2,'k','LineWidth',2);
+    title('y_{2}(t)');
+    xlabel('Tempo (s)');
+    ylabel('Amplitude (V)');
+    grid minor 
+    
+    
