@@ -1,0 +1,30 @@
+%{
+ =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+|                                                                        |
+| LABORATÓRIO DE COMUNICAÇÕES                                            |
+| ALUNO: Woldson Leonne Pereira Gomes (woldson.gomes@itec.ufpa.br)       |
+| MATRICULA: 202100470032                                                |
+|                                                                        |
+|                             LISTA 1                                    |
+| 1) Simule no Matlab uma onda senoidal com as seguintes caracteristicas |
+| Amplitude = 20 V, Frequencia = 10 KHz e plote o grafico correspondente |
+| (utilize as funcoes xlabel, ylabel, title e grid)                      |
+ =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+%}
+clear all; close all; clc;         %limpando a workspace
+
+%% Setup de simulacao e criacao da funcao
+
+A = 20;                            %Amplitude (V)
+f = 10e+3;                         %Frequencia (Hz)
+t=(-2/f:1/(f*100):2/f);            %Vetor de tempo para simulacao
+onda_senoidal = A*sin(2*pi*f*t);   %onda senoidal 
+
+%% Plot dos resultados
+figure(1)
+plot(t,onda_senoidal,'k','LineWidth',2);
+title(['Onda senoidal com amplitude ',num2str(A),' e frequencia ', ...
+    num2str(f),' Hz']);
+xlabel('Tempo (s)');
+ylabel('Amplitude (V)');
+grid minor 
