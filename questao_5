@@ -1,0 +1,44 @@
+%{
+ =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+|                                                                        |
+| LABORATÓRIO DE COMUNICAÇÕES                                            |
+| ALUNO: Woldson Leonne Pereira Gomes (woldson.gomes@itec.ufpa.br)       |
+| MATRICULA: 202100470032                                                |
+|                                                                        |
+|                             LISTA 1                                    |
+| 5) Plote o grafico correspondente a sequencia {10 5 0 2 -11 0 -1 -9 0 }|
+| utilize a funcao stem e outras funcoes de apresentacao grafica.        |
+ =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+%}
+clear all; close all; clc;         %limpando a workspace
+
+% Definicao da sequencia dada no problema e armazenada em um vetor Y
+Y = [10 5 0 2 -11 0 -1 -9 0]
+
+% Plot da figura utiliando a funcao stem
+figure(1)
+stem(Y)
+title('Representacao da sequencia usando a funcao steam()');
+xlabel('[n]');
+ylabel('Y');
+axis([0 length(Y)+1 min(Y)-1 max(Y)+1])
+grid minor
+for i=1:length(Y),
+    text(i+0.2,Y(i),num2str(Y(i)))
+end
+
+% Plot da figura utilizando outras funcoes (escolha: função 'bar' e 'plot')
+figure(2)
+k=1:1:9;
+bar(k,Y,0.05,'r')
+hold on
+plot(Y,'*r','MarkerSize',7)
+xlabel('[n]');
+ylabel('Y');
+axis([0 length(Y)+1 min(Y)-3 max(Y)+3])
+title('Representacao da sequencia usando a funcao bar() e plot()');
+grid minor
+legend('bar()','plot()')
+for i=1:length(Y),
+    text(i+0.13,Y(i)+0.9,num2str(Y(i)))
+end
