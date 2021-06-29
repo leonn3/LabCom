@@ -1,0 +1,37 @@
+%{
+ =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+|                                                                        |
+| LABORATORIO DE COMUNICACOES                                            |
+| ALUNO: Woldson Leonne Pereira Gomes (woldson.gomes@itec.ufpa.br)       |
+| MATRICULA: 202100470032                                                |
+|                                                                        |
+|                             LISTA 1                                    |
+| 3) Utilizando o resultado do exercicio 1, verifique quantas amostras   |
+| foram necessarias para representar o sinal gerado.                     |
+ =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+%}
+clear all; close all; clc;         %limpando a workspace
+
+%% Replicando o mesmo codigo usado no exercicio 1:
+% Setup de simulacao e criacao da funcao
+
+A = 20;                            %Amplitude (V)
+f = 10e+3;                         %Frequencia (Hz)
+t=(-2/f:1/(f*100):2/f);            %Vetor de tempo para simulacao
+onda_senoidal = A*sin(2*pi*f*t);   %onda senoidal 
+
+% Plot dos resultados
+figure(1)
+plot(t,onda_senoidal,'k','LineWidth',2);
+title(['Onda senoidal com amplitude ',num2str(A),' e frequencia ', ...
+    num2str(f),' Hz']);
+xlabel('Tempo (s)');
+ylabel('Amplitude (V)');
+grid minor 
+
+%% Verificacao da quantidade de amostras utilizadas na simulacao
+% Utiliza-se a funcao length()
+N = length(onda_senoidal); %poderiamos tambem fazer um length no vetor t
+                          %pois possui mesma dimensao (qtd de amostras)
+                          
+fprintf('Quantidade de amostras para representar a senoide: %d\n', N)    
