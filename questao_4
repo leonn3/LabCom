@@ -1,0 +1,45 @@
+%{
+ =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+|                                                                        |
+| LABORATÓRIO DE COMUNICAÇÕES                                            |
+| ALUNO: Woldson Leonne Pereira Gomes (woldson.gomes@itec.ufpa.br)       |
+| MATRICULA: 202100470032                                                |
+|                                                                        |
+|                             LISTA 1                                    |
+| 4) Simule um sinal senoidal considerando somente 10000 amostras para   |
+| representa-lo. Considere as mesmas caracteristicas do exercicio 1.     |
+| Apresente os resultados atraves de grafico.                            |
+ =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+%}
+clear all; close all; clc;         %limpando a workspace
+
+%% Replicando o mesmo codigo usado no exercicio 1:
+% Setup de simulacao e criação da funcao
+
+A = 20;                            %Amplitude (V)
+f = 10e+3;                         %Frequencia (Hz)
+
+N = 10000;                         %Quantidade de amostras desejada
+Ts = 1/(f*100);                    %Periodo de amostragem
+tts = N*Ts -Ts;                    %Tempo total de simulacao
+tfinal = tts/2;                    %Tempo final de simulacao
+tinit = -tts/2;                    %Tempo inicial de simulacao
+
+t=(tinit:Ts:tfinal);               %Vetor de tempo para simulacao
+onda_senoidal = A*sin(2*pi*f*t);   %onda senoidal 
+
+% Plot dos resultados
+figure(1)
+plot(t,onda_senoidal,'k','LineWidth',2);
+title(['Onda senoidal com amplitude ',num2str(A),' e frequencia ', ...
+    num2str(f),' Hz']);
+xlabel('Tempo (s)');
+ylabel('Amplitude (V)');
+grid minor 
+
+%% Verificacao da quantidade de amostras utilizadas na simulacao
+% Utiliza-se a funcao length()
+                 
+fprintf('Quantidade de amostras para representar a senoide: %d\n', ...
+         length(onda_senoidal));
+
