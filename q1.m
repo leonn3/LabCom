@@ -1,25 +1,3 @@
-
-% TEORIA:
-% Transmissão de portadora suprimida por banda lateral dupla (DSB-SC):
-%
-% De transmissão em que:
-% (a) frequências produzidas por modulação de amplitude são simetricamente 
-% espaçadas acima e abaixo da frequência portadora e 
-% (b) O nível da portadora é reduzido ao nível prático mais baixo, 
-% idealmente completamente suprimido.
-%
-% Na modulação de transmissão de portadora suprimida de banda lateral 
-% dupla (DSB-SC), ao contrário do AM, a portadora de onda não é 
-% transmitida;
-% assim, uma grande porcentagem da potência que lhe é dedicada é 
-% distribuída entre as bandas laterais, o que implica um aumento da 
-% cobertura em DSB-SC,
-% em comparação com AM, para a mesma potência utilizada.
-%
-% A transmissão DSB-SC é um caso especial de transmissão de portadora 
-% reduzida de banda lateral dupla.
-
-
 % autor: woldson leonne
 % questao 1
 
